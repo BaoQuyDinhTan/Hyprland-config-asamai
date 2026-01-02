@@ -1,0 +1,85 @@
+{
+    "layer": "top",
+    "position": "top",
+    "mod": "dock",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "height": 0,
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+    "modules-center": ["hyprland/window"],
+    "modules-right": [
+        "tray",
+        "custom/powerprofile",
+        "network",
+        "pulseaudio",
+        "battery",
+        "clock"
+    ],
+
+    "clock": {
+    "format-alt": "{:%H:%M}",
+    "format": "{:%Y-%m-%d %H:%M:%S}",
+    "tooltip-format": "<big>{:%A, %d %B %Y}</big>"
+	}
+	,
+
+    "hyprland/window": {
+        "format": "{}",
+        "max-length": 50
+    },
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "on-click": "activate"
+    },
+"custom/powerprofile": {
+        "exec": "~/.config/waybar/powerprofile.sh",   
+        "return-type": "json",
+        "interval": "once",
+        "on-click": "~/.config/waybar/powerprofile.sh toggle", 
+        "signal": 8,
+        "format": "{}" 
+    },
+    "tray": {
+        "icon-size": 13,
+        "spacing": 10
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "tooltip": false,
+        "format-muted": " Muted",
+        "on-click": "pavucontrol",
+        "on-click-right": "pamixer -t",
+        "on-scroll-up": "pamixer -i 5",
+        "on-scroll-down": "pamixer -d 5",
+        "scroll-step": 5,
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        }
+    },
+    "network": {
+        "format-wifi": " {essid}",
+        "format-ethernet": "Wired",
+        "format-disconnected": "⚠ Disconnected",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "format-linked": "{ifname} (No IP) :("
+    },
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-icons": ["", "", "", "", ""]
+    }
+}

@@ -1,0 +1,132 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", "Noto Color Emoji";
+    font-size: 14px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+    color: white;
+}
+
+/* --- WORKSPACES --- */
+#workspaces {
+    background: #1e1e2e;
+    margin: 5px;
+    padding: 0 5px;
+    border-radius: 16px;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background: transparent;
+    color: white;
+}
+
+#workspaces button:hover {
+    background: #313244;
+    color: #cba6f7;
+    border-radius: 16px;
+}
+
+#workspaces button.active {
+    color: #89b4fa;
+}
+
+/* --- MODULES --- */
+/* I changed #clock to .clock here. 
+   This ensures the padding applies to BOTH #date and #time 
+*/
+.clock,
+#battery,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#tray,
+#custom-powerprofile {
+    padding: 0 15px;
+    margin: 5px 0;
+    color: #1e1e2e; 
+    border-radius: 16px;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+#window {
+    background: #1e1e2e;
+    color: white;
+    padding: 0 15px;
+    margin: 5px 10px;
+    border-radius: 16px;
+}
+
+/* --- COLORS --- */
+
+/* Unified Clock Button */
+#clock {
+    background-color: #fab387; /* Peach color */
+    color: #1e1e2e;
+    margin-right: 10px;
+    border-radius: 16px;       /* Makes it round */
+    padding: 0 10px;           /* Adds space inside */
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#pulseaudio {
+    background-color: #89b4fa; /* Blue */
+}
+
+#network {
+    background-color: #a6e3a1; /* Green */
+}
+
+#battery {
+    background-color: #f9e2af; /* Yellow */
+}
+
+#battery.critical {
+    background-color: #f38ba8; /* Red */
+    color: white;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* --- DYNAMIC POWER PROFILE COLORS --- */
+/* Default style (fallback) */
+#custom-powerprofile {
+    background-color: #89b4fa;
+    color: #1e1e2e;
+}
+
+/* High Performance - Red */
+#custom-powerprofile.performance {
+    background-color: #f38ba8; 
+    color: #1e1e2e;
+}
+
+/* Power Saver - Green */
+#custom-powerprofile.power-saver {
+    background-color: #a6e3a1; 
+    color: #1e1e2e;
+}
+
+/* Balanced - Blue */
+#custom-powerprofile.balanced {
+    background-color: #89b4fa; 
+    color: #1e1e2e;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
